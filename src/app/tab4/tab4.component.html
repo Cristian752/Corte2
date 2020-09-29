@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 4
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 4</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card *ngFor="let item of data">
+    <ion-card-header>
+      <ion-card-subtitle>UCEVA</ion-card-subtitle>
+      <ion-card-title>Trabajos</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Id trabajo: {{item.id_trabajo_agenda}}
+    </ion-card-content>
+    <ion-card-content>
+      Fecha: {{item.fecha}}
+    </ion-card-content>
+    <ion-card-content>
+      H inicio: {{item.hora_inicio}}
+    </ion-card-content>
+    <ion-card-content>
+      H fin: {{item.hora_fin}}
+    </ion-card-content>
+    <ion-card-content>
+      Id espacio: {{item.id_espacio}}
+    </ion-card-content>
+    <ion-card-content>
+      Id trabajo: {{item.id_trabajo}}
+    </ion-card-content>
+
+
+  </ion-card>
+  
+</ion-content>

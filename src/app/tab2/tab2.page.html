@@ -13,5 +13,17 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-grid>
+    <ion-row >
+      <ion-col *ngFor="let item of data">
+        Id trabajo: {{item.id_trabajo_agenda}} <br>
+        Fecha: {{item.fecha}} <br>
+        H inicio: {{item.hora_inicio}} <br>
+        H fin: {{item.hora_fin}} <br>
+        Id espacio: {{item.id_espacio}} <br>
+        Id trabajo: {{item.id_trabajo}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
