@@ -1,17 +1,53 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Formulario
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>
+      <div class="ion-text-center">
+        Autoevaluación
+      </div>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-radio-group>
+    <div class="ion-text-justify">
+      ¿Has estado en contacto cercano, sin usar elementos de protección, por más de 15 minutos con una persona con
+      diagnóstico confirmado de COVID-19? o ¿Has estado compartiendo el mismo lugar por más de 120 minutos con una
+      persona con diagnósticoconfirmado de COVID-19?
+    </div>
+    <ion-list-header>
+      <ion-label>Marca una opción</ion-label>
+    </ion-list-header>
+    <ion-list>
+      <ion-item *ngFor="let rad of dataYN"
+                (click) = "onClick2( rad )">
+        <ion-label>{{ rad.value }}</ion-label>
+        <ion-radio slot="start" value="si" [(ngModel)]="rad.selected"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </ion-radio-group>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <div class="ion-text-justify">
+      ¿Has presentado alguno de estos síntomas recientemente (en los últimos 14 días)?
+    </div>
+    <ion-list-header>
+      <ion-label>Maque una o varias opciones</ion-label>
+    </ion-list-header>
+    <ion-list>
+      <ion-item *ngFor="let check of data" (click) = "onClick( check )">
+        <ion-label>{{ check.value }}</ion-label>
+        <ion-checkbox [(ngModel)]="check.selected"></ion-checkbox>
+      </ion-item>   
+    </ion-list>
+
+    <ion-button (click) = "datos()" expand="full" color="secondary">Enviar</ion-button>
+
 </ion-content>
