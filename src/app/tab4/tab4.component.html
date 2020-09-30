@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 4
+      Covid Colombia
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -15,27 +15,27 @@
 
   <ion-card *ngFor="let item of data">
     <ion-card-header>
-      <ion-card-subtitle>UCEVA</ion-card-subtitle>
-      <ion-card-title>Trabajos</ion-card-title>
+      <ion-card-subtitle>COVID-19</ion-card-subtitle>
+      <ion-card-title>Estadisticas</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
-      Id trabajo: {{item.id_trabajo_agenda}}
+      Id Caso: {{item.id_de_caso}}
     </ion-card-content>
     <ion-card-content>
-      Fecha: {{item.fecha}}
+      Ubicación: {{item.ciudad_de_ubicaci_n}}
     </ion-card-content>
     <ion-card-content>
-      H inicio: {{item.hora_inicio}}
+      Situación: {{item.atenci_n}}
     </ion-card-content>
     <ion-card-content>
-      H fin: {{item.hora_fin}}
+      Edad: {{item.edad}}
     </ion-card-content>
     <ion-card-content>
-      Id espacio: {{item.id_espacio}}
+      Sexo: {{item.sexo}}
     </ion-card-content>
     <ion-card-content>
-      Id trabajo: {{item.id_trabajo}}
+      Estado: {{item.estado}}
     </ion-card-content>
 
 

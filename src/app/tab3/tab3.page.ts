@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { EventServiceService } from '../providers/event-service.service';
 
-import { Agenda } from '../models/estudiantesModel.model'
+import { Covidcol } from '../models/estudiantesModel.model'
 
 @Component({
   selector: 'app-tab3',
@@ -11,7 +11,7 @@ import { Agenda } from '../models/estudiantesModel.model'
 })
 export class Tab3Page implements OnInit{
 
-  public data: Array<Agenda>; 
+  public data: Array<Covidcol>; 
 
   constructor(private event: EventServiceService) { 
     this.getData();

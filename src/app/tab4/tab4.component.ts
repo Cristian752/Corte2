@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventServiceService } from '../providers/event-service.service';
 
-import { Agenda } from '../models/estudiantesModel.model'
+import { Covidcol } from '../models/estudiantesModel.model'
 
 @Component({
   selector: 'app-tab4',
@@ -11,7 +11,7 @@ import { Agenda } from '../models/estudiantesModel.model'
 
 export class Tab4Component implements OnInit {
 
-  public data: Array<Agenda>; 
+  public data: Array<Covidcol>; 
 
   constructor(private event: EventServiceService) { 
     this.getData();
@@ -24,7 +24,7 @@ export class Tab4Component implements OnInit {
   public getData(){
     this.event.getMock().
     subscribe(resp => {
-      this.data = resp.agenda;
+      this.data = resp.covidcol;
       //console.log(resp);
     }, error => {
       console.error(error);
