@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      View Data
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,21 +9,24 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">View Data</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid>
-    <ion-row >
-      <ion-col *ngFor="let item of data">
-        Id trabajo: {{item.id_trabajo_agenda}} <br>
-        Fecha: {{item.fecha}} <br>
-        H inicio: {{item.hora_inicio}} <br>
-        H fin: {{item.hora_fin}} <br>
-        Id espacio: {{item.id_espacio}} <br>
-        Id trabajo: {{item.id_trabajo}}
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+ 
+  <ion-card>
+  
+    <ion-col *ngFor="let item of data">
+      
+      <br>
+      Id trabajo: {{item.id_trabajo_agenda}} <br>
+      Fecha: {{item.fecha}} <br>
+      H inicio: {{item.hora_inicio}} <br>
+      H fin: {{item.hora_fin}} <br>
+      Id espacio: {{item.id_espacio}} <br>
+      Id trabajo: {{item.id_trabajo}} <br>
+    </ion-col>
+  </ion-card>
 
 </ion-content>
+
