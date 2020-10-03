@@ -1,77 +1,41 @@
-import { NgForOf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormGroup , Validators,FormBuilder  } from '@angular/forms';
+import { ServicioService } from '../services/servicio.service';
+
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit{
+export class Tab1Page {
+lista:string[]=["Si","No",];
+usuario = this.fb.group ({
+  Nombre:[" ",[Validators.required, Validators.minLength(3)]],
+  Correo:[" ",[Validators.required, Validators.minLength(3)]],
+  edad:[" ",[Validators.required, Validators.minLength(1)]],
+  Tos: ['',Validators.required],
+  FalDif: ['',Validators.required],
+  Resfriado: [''],
+  Escalofrio: [''],
+  DolMusc: [''],
+  DolCabe: [''],
+  DolGar: [''],
+  PerdOlfa: [''],
+  PerdSab: [''],
+  Ninguno: [''],
+  Covid: ['',Validators.required],
+  SintCovid: ['',Validators.required],
+  Viajo: ['',Validators.required],
 
-  data = [
-    {
-      value: 'Fiebre de 38°C o más',
-      selected: false
-    },
-    {
-      value: 'Dificultad para respirar',
-      selected: false
-    },
-    {
-      value: 'Dolor de garganta',
-      selected: false
-    },
-    {
-      value: 'Perdida del olfato',
-      selected: false
-    },
-    {
-      value: 'Tos',
-      selected: false
-    },
-    {
-      value: 'Fatiga o Decaimiento',
-      selected: false
-    },
-    {
-      value: 'Perdida del gusto',
-      selected: false
-    }
-  ];
+ });
+  constructor(private fb: FormBuilder, private Ser: ServicioService) {}
+  guardarDatos (){
+    console.log(this.usuario.value)
+    this.Ser.GuardarForm(this.usuario.value);
 
-  dataYN = [
-    {
-      value: 'Si',
-      selected: true
-    },
-    {
-      value: 'No',
-      selected: false
-    }
-  ];
-
-  constructor() {}
-
-  public datosSelect: Array<any>; 
-  public datosRadio: Array<any>; 
-
-  ngOnInit(){
-
-  }
-
-  onClick(check){
-    //console.log(check);
     
-    this.datosSelect =  check ;
   }
 
-  onClick2(rad){
-    //console.log(rad);
-    this.datosRadio = rad;
-  }
-
-  datos(){
-    console.log(this.datosRadio);
-    console.log(this.datosSelect);
-  }
 }

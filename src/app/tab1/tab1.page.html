@@ -1,11 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Formulario
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-header translucent>
   <ion-toolbar>
     <ion-title>
@@ -16,38 +8,142 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-radio-group>
-    <div class="ion-text-justify">
-      ¿Has estado en contacto cercano, sin usar elementos de protección, por más de 15 minutos con una persona con
-      diagnóstico confirmado de COVID-19? o ¿Has estado compartiendo el mismo lugar por más de 120 minutos con una
-      persona con diagnósticoconfirmado de COVID-19?
-    </div>
-    <ion-list-header>
-      <ion-label>Marca una opción</ion-label>
-    </ion-list-header>
-    <ion-list>
-      <ion-item *ngFor="let rad of dataYN"
-                (click) = "onClick2( rad )">
-        <ion-label>{{ rad.value }}</ion-label>
-        <ion-radio slot="start" value="si" [(ngModel)]="rad.selected"></ion-radio>
-      </ion-item>
-    </ion-list>
-  </ion-radio-group>
 
-    <div class="ion-text-justify">
-      ¿Has presentado alguno de estos síntomas recientemente (en los últimos 14 días)?
-    </div>
-    <ion-list-header>
-      <ion-label>Maque una o varias opciones</ion-label>
-    </ion-list-header>
-    <ion-list>
-      <ion-item *ngFor="let check of data" (click) = "onClick( check )">
-        <ion-label>{{ check.value }}</ion-label>
-        <ion-checkbox [(ngModel)]="check.selected"></ion-checkbox>
-      </ion-item>   
-    </ion-list>
+    <ion-content fullscreen>
 
-    <ion-button (click) = "datos()" expand="full" color="secondary">Enviar</ion-button>
+      <form [formGroup]="usuario" (ngSubmit)="guardarDatos()">
 
-</ion-content>
+        <ion-item>
+          <ion-label> Nombre: </ion-label><ion-input formControlName="Nombre">  </ion-input>
+         </ion-item>
+ 
+         <ion-item>
+           <ion-label> Correo: </ion-label><ion-input formControlName="Correo">  </ion-input>
+          </ion-item>
+ 
+          <ion-item>
+           <ion-label> Edad: </ion-label><ion-input formControlName="edad">  </ion-input>
+          </ion-item>
+        
+          <ion-toolbar>
+              <div class="ion-text-center">
+              Formulario
+              </div>
+
+              <p class="ion-text-justify">
+                Por favor responda de manera sincera el siguiente cuestionario,
+                para generar la autoevalución para el manejo de Covid-19
+              </p>
+          </ion-toolbar>
+          
+          
+      <ion-list>
+        <ion-list-header>
+          <ion-label>Marca una opción</ion-label>
+        </ion-list-header>
+
+        <ion-radio-group value="form">
+          
+          <ion-list-header>
+            <ion-label>¿Has presentado alguno de estos síntomas recientemente (en los últimos 14 días)?</ion-label>
+          </ion-list-header>
+          
+            
+            <ion-item>
+              <ion-list-header>
+                <ion-label>Tos frecuente </ion-label>
+              </ion-list-header>
+              <select formControlName="Tos">
+                <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+                </select>
+              </ion-item>
+
+              <ion-item>
+                <ion-list-header>
+                  <ion-label>Dificultad para respirar</ion-label>
+                </ion-list-header>
+                <select formControlName="FalDif">
+                  <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+                  </select>
+                </ion-item>
+
+          <ion-list-header>
+            <ion-label>Seleccione si a presentado algunos de los siguientes sintomas</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <input type = "checkbox" name = "Resfriado"  formControlName="Resfriado"> Resfriado (1)
+          </ion-item>
+
+          <ion-item>
+            <input type = "checkbox" name = "Escalofrio" formControlName="Escalofrio"> Escalofrio (2)
+          </ion-item>
+
+          <ion-item>
+            <input type = "checkbox" name = "Dolor muscular" formControlName="DolMusc"> Dolor muscular (3)
+          </ion-item>
+
+          <ion-item>
+            <input type = "checkbox" name = "Dolor de cabeza" formControlName="DolCabe"> Dolor de cabeza (4)
+          </ion-item>
+
+          <ion-item>
+            <input type = "checkbox" name = "Dolor de garganta" formControlName="DolGar"> Dolor de garganta (5)
+          </ion-item>
+
+          <ion-item>
+            <input type = "checkbox" name = "Perdida de Olfato" formControlName="PerdOlfa"> Perdida de Olfato (6)
+          </ion-item>
+
+          <ion-item>
+            <input type = "checkbox" name = "Perdida de sabor en la comida" formControlName="PerdSab"> Perdida de sabor en la comida (7)
+          </ion-item>
+        
+          <ion-item>
+            <input type = "checkbox" name = "Ninguno" formControlName="Ninguno"> Ninguno
+          </ion-item>
+        </ion-radio-group>
+
+        <ion-list-header>
+          <ion-label>Te has relaciona en los ultimos 14 dias con personas que cumplan las siguientes condiciones: </ion-label>
+        </ion-list-header>
+
+
+
+        <ion-list-header>
+          <ion-label>¿Le diagnosticaron COVID 19? </ion-label>
+        </ion-list-header>
+        <ion-item>  
+          <select formControlName="Covid">
+            <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+            </select>
+        </ion-item>
+
+
+        <ion-list-header>
+          <ion-label>¿tenia o tiene sintomas de COVID19? </ion-label>
+        </ion-list-header>
+        <ion-item>
+          <select formControlName="SintCovid">
+            <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+            </select>
+          </ion-item>
+
+
+        <ion-list-header>
+          <ion-label>¿Viajó internacionalmente o tomó un crucero? </ion-label>
+        </ion-list-header>
+        <ion-item>
+          <select formControlName="Viajo">
+            <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+            </select>
+          </ion-item>
+
+
+        <p class="ion-text-center">
+          <ion-button type="submit"  [disabled]="!usuario.valid" >Guardar</ion-button>
+        </p>
+      
+      </ion-list>
+      
+    </form>
+    </ion-content>
